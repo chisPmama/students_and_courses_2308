@@ -2,9 +2,9 @@ require './lib/student'
 require 'pry'
 
 class Course
-  attr_reader :course, :capacity
-  def initialize(course, capacity)
-    @course = course
+  attr_reader :name, :capacity, :students
+  def initialize(name, capacity)
+    @name = name
     @capacity = capacity
     @students = []
   end

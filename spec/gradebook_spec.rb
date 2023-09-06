@@ -48,6 +48,7 @@ RSpec.describe Gradebook do
   it "can return the students below the threshold" do
     @physics.enroll(@student1)
     @physics.enroll(@student2)
+    @physics.enroll(@strudent3)
     @gradebook.add_course(@physics)
     @gradebook.add_course(@chemistry)
     expect(@gradebook.students_below().class).to eq(Array)
@@ -58,16 +59,3 @@ RSpec.describe Gradebook do
 
 
 end
-
-
-@gradebook = Gradebook.new("Mr. Rogers")
-@physics = Course.new("Physics",3)
-@chemistry = Course.new("Chemistry",2)
-@student1 = Student.new({name: "Morgan", age: 21})
-@student2 = Student.new({name: "Jordan", age: 29}) 
-@student3 = Student.new({name: "Jessica", age: 19})
-
-@physics.enroll(@student1)
-@physics.enroll(@student2)
-@gradebook.add_course(@physics)
-@gradebook.add_course(@chemistry)

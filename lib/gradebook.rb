@@ -21,7 +21,21 @@ class Gradebook
     end
     list
   end
+
+  def students_below(threshold)
+    students = []
+    @courses.each do |course|
+      course.students.each do |student|
+        students << student
+      end
+    end
+    students.find_all do |student|
+      student.grade < threshold      
+    end
+  end
+
+
 end
 
-# binding.pry
+binding.pry
 # list_all_students => {"Physics" => [Student1, Student2], "Math" => [Student3, Student2]}

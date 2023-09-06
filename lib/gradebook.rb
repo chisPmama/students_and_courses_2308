@@ -48,8 +48,12 @@ class Gradebook
 
   # def all_grades
   #   all_grades = {}
+  #   students_grades = []
   #   @courses.each do |course|
-  #     all_grades.merge!({course=>course.students.grades})
+  #     course.students each do |student|
+  #       students_grades << course.student.grade
+  #     end
+  #     all_grades.merge!({course=>students_grades})
   #   end
   # end
 

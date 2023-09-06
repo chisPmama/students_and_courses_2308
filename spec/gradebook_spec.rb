@@ -1,7 +1,7 @@
 require 'rspec'
 require './lib/course'
 require './lib/student'
-require './lib/course'
+require './lib/gradebook'
 
 RSpec.describe Gradebook do
   before(:each) do
@@ -39,23 +39,22 @@ RSpec.describe Gradebook do
   it "can enroll and list students in the gradebook" do
     @physics.enroll(@student1)
     @physics.enroll(@student2)
+    @physics.enroll(@student3)
     @gradebook.add_course(@physics)
     @gradebook.add_course(@chemistry)
     expect(@gradebook.list_all_students.class).to be(Hash)
-    # expect(@gradebook.list_all_students).to eq(Array)
+    expect(@gradebook.list_all_students.count).to eq(2)
+    expect(@gradebook.list_all_students["Physics"].count).to eq(3)
   end
 
   it "can return the students below the threshold" do
     @physics.enroll(@student1)
     @physics.enroll(@student2)
-    @physics.enroll(@strudent3)
+    @physics.enroll(@student3)
     @gradebook.add_course(@physics)
     @gradebook.add_course(@chemistry)
-    expect(@gradebook.students_below().class).to eq(Array)
-    expect(@gradebook.students_below()).to eq()
+    expect(@gradebook.students_below(85).class).to eq(Array)
+    expect(@gradebook.students_below(85).count).to eq(2)
   end
-
-
-
 
 end

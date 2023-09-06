@@ -9,8 +9,14 @@ RSpec.describe Gradebook do
     @physics = Course.new("Physics",3)
     @chemistry = Course.new("Chemistry",2)
     @student1 = Student.new({name: "Morgan", age: 21})
+    @student1.log_score(80)
+    @student1.log_score(90)
     @student2 = Student.new({name: "Jordan", age: 29}) 
+    @student2.log_score(65)
+    @student2.log_score(75)
     @student3 = Student.new({name: "Jessica", age: 19})
+    @student3.log_score(40)
+    @student3.log_score(65)
   end
 
   it "exists" do
@@ -52,3 +58,16 @@ RSpec.describe Gradebook do
 
 
 end
+
+
+@gradebook = Gradebook.new("Mr. Rogers")
+@physics = Course.new("Physics",3)
+@chemistry = Course.new("Chemistry",2)
+@student1 = Student.new({name: "Morgan", age: 21})
+@student2 = Student.new({name: "Jordan", age: 29}) 
+@student3 = Student.new({name: "Jessica", age: 19})
+
+@physics.enroll(@student1)
+@physics.enroll(@student2)
+@gradebook.add_course(@physics)
+@gradebook.add_course(@chemistry)
